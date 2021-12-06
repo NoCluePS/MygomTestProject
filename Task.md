@@ -11,5 +11,5 @@ Our customer support team is receiving a storm of complaints. You're the only gu
 - After Email update page should not be reloaded (done)
 - Add worng emails filter (done)
 - Add tests
-- Refactor to make the code neat and clean - this will keep your teammates happy
-- Fix as many errors as you notice
+- Refactor to make the code neat and clean - this will keep your teammates happy (I want to say done)
+- Fix as many errors as you notice (I want to say done)
