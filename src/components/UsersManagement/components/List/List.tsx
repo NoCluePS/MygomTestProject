@@ -8,13 +8,15 @@ import "./list-style.scss";
 
 interface IList {
   items: Array<IItem>;
+  refresh: Function;
 }
 
 interface IUpdateModal {
   item: IItem;
+  refresh: Function;
 }
 
-const UpdateModal: FC<IUpdateModal> = ({ item }) => {
+const UpdateModal: FC<IUpdateModal> = ({ item, refresh }) => {
   const [showModal, setShowModal] = useState(false);
   const [newEmail, setNewEmail] = useState("");
 
@@ -44,6 +46,7 @@ const UpdateModal: FC<IUpdateModal> = ({ item }) => {
                 ...item,
                 email: newEmail,
               });
+              refresh();
 
               setShowModal(false);
             }}
@@ -64,7 +67,7 @@ const UpdateModal: FC<IUpdateModal> = ({ item }) => {
   );
 };
 
-const List: FC<IList> = ({ items }) => (
+const List: FC<IList> = ({ items, refresh }) => (
   <ul className="list">
     {items.map((item) => (
       <li className="item">
@@ -73,7 +76,7 @@ const List: FC<IList> = ({ items }) => (
           <div className="title">{item.name}</div>
           <div className="description">{item.email}</div>
         </div>
-        <UpdateModal item={item} />
+        <UpdateModal refresh={refresh} item={item} />
       </li>
     ))}
   </ul>
