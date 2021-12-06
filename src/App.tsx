@@ -23,7 +23,11 @@ const App = () => (
       />
       <PrivateRoute
         path={Routes.Root}
-        component={() => <Redirect to={Routes.Users} />}
+        component={() => (
+          <UserContextProvider>
+            <UsersManagement />
+          </UserContextProvider>
+        )}
       />
     </Switch>
   </Router>
